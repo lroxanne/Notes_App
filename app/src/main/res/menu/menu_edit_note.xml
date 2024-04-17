@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/CalMenu"
+        android:title=""
+        android:icon="@drawable/baseline_cal_24"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/deleteMenu"
         android:icon="@drawable/baseline_delete_24"
         android:title=""
