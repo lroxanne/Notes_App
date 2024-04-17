@@ -79,6 +79,8 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
         }.create().show()
     }
 
+
+
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menu.clear()
         menuInflater.inflate(R.menu.menu_edit_note, menu)
@@ -89,8 +91,18 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             R.id.deleteMenu -> {
                 deleteNote()
                 true
-            } else -> false
+            }
+            R.id.CalMenu -> {
+                calculateAndShowWordCount()
+                true
+            }else -> false
         }
+    }
+    private fun calculateAndShowWordCount() {
+        val noteTitle = binding.editNoteTitle.text.toString().trim()
+        val noteDesc = binding.editNoteDesc.text.toString().trim()
+        val totalWords = (noteTitle.split("\\s+".toRegex()).size + noteDesc.split("\\s+".toRegex()).size).coerceAtLeast(0)
+        Toast.makeText(context, "Total word count: $totalWords", Toast.LENGTH_LONG).show()
     }
 
     override fun onDestroy() {
