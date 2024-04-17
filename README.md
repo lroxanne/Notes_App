@@ -24,5 +24,14 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - DataBinding
   - Navigation Component
   - Room Database
+  ## Progress:
+  - Link to our first presentation slide:https://docs.google.com/presentation/d/1-PhKBUz6BZXjfQ-_IoqxucheBnkmnISiEKFgLeH91r8/edit? 
+  usp=sharing
+
+  - Link to our Second presentation slide:https://docs.google.com/presentation/d/1zgome5nhVw2duotVGnDWhl_KOt4mEWw9qdSYCz9z52A/edit? 
+  usp=sharing
+
+  - Link to our Third presentation slide:https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit#slide=id.g1f58920f515_0_45
+     
 
 1
