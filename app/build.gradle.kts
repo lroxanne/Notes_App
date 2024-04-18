@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.thenotesapp"
-        minSdk = 28
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -29,6 +29,10 @@ android {
             )
         }
     }
+    packagingOptions {
+        // Exclude the duplicate files
+        exclude("META-INF/DEPENDENCIES")
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -38,6 +42,7 @@ android {
     }
     buildFeatures{
         dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -47,6 +52,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -66,6 +73,17 @@ dependencies {
     val lifecycleVersion = "2.6.2"
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+
+
+    implementation("com.itextpdf:itext7-core:7.1.16")
+
+    implementation("com.google.api-client:google-api-client:1.31.5")
+    implementation("com.google.android.gms:play-services-drive:17.0.0")
+    implementation("com.google.android.gms:play-services-auth:19.0.0")
+    implementation("com.google.auth:google-auth-library-oauth2-http:1.19.0")
+    implementation("com.google.api-client:google-api-client-android:1.31.5")
+    implementation("com.google.apis:google-api-services-drive:v3-rev20210919-1.32.1")
+
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
     // Annotation processor
