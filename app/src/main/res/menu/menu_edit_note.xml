@@ -4,12 +4,25 @@
 
     <item
         android:id="@+id/CalMenu"
-        android:title=""
+        android:title="Word Count"
         android:icon="@drawable/baseline_cal_24"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/linguaRobot"
+        android:title="Lingua Robot"
+        app:showAsAction="never" />
+
     <item
         android:id="@+id/deleteMenu"
         android:icon="@drawable/baseline_delete_24"
-        android:title=""
-        app:showAsAction="always"/>
+        android:title="Delete"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/uploadMenu"
+        android:icon="@drawable/ic_upload"
+        android:title="Upload"
+        app:showAsAction="never" />
+
 </menu>
