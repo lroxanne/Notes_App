@@ -17,11 +17,20 @@ interface NoteDao {
     @Update
     suspend fun updateNote(note: Note)
 
-    @Delete
-    suspend fun deleteNote(note: Note)
+    @Query("UPDATE NOTES SET isDeleted=1 WHERE id =:noteId")
+    suspend fun deleteNote(noteId: Int)
 
-    @Query("SELECT * FROM NOTES ORDER BY id DESC")
+    @Delete
+    suspend fun thoroughDeleteNote(note: Note)
+
+    @Query("UPDATE NOTES SET isDeleted=0 WHERE id =:noteId")
+    suspend fun recoverNote(noteId: Int)
+
+    @Query("SELECT * FROM NOTES WHERE isDeleted is 0 ORDER BY id DESC")
     fun getAllNotes(): LiveData<List<Note>>
+
+    @Query("SELECT * FROM NOTES WHERE isDeleted is 1 ORDER BY id DESC")
+    fun getDeleteNotes(): LiveData<List<Note>>
 
     @Query("SELECT * FROM NOTES WHERE noteTitle LIKE :query OR noteDesc LIKE :query")
     fun searchNote(query: String?): LiveData<List<Note>>

@@ -114,6 +114,12 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
     }
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return false
+        return when (menuItem.itemId) {
+            R.id.trash -> {
+                homeBinding?.root?.findNavController()?.navigate(R.id.action_homeFragment_to_trashNoteFragment)
+                true
+            }
+            else -> false
+        }
     }
 }

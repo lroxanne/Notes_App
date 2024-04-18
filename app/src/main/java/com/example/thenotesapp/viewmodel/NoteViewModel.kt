@@ -19,12 +19,24 @@ class NoteViewModel(app: Application, private val noteRepository: NoteRepository
             noteRepository.deleteNote(note)
         }
 
+    fun thoroughDeleteNote(note: Note) =
+        viewModelScope.launch {
+            noteRepository.thoroughDeleteNote(note)
+        }
+
+    fun recoverNote(note: Note) =
+        viewModelScope.launch {
+            noteRepository.recoverNote(note)
+        }
+
     fun updateNote(note: Note) =
         viewModelScope.launch {
             noteRepository.updateNote(note)
         }
 
     fun getAllNotes() = noteRepository.getAllNotes()
+
+    fun getDeleteNotes() = noteRepository.getDeleteNotes()
 
     fun searchNote(query: String?) =
         noteRepository.searchNote(query)

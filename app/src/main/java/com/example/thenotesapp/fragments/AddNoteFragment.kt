@@ -31,7 +31,6 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         addNoteBinding = FragmentAddNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -51,7 +50,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
         val noteDesc = binding.addNoteDesc.text.toString().trim()
 
         if (noteTitle.isNotEmpty()){
-            val note = Note(0, noteTitle, noteDesc)
+            val note = Note(0, noteTitle, noteDesc, false)
             notesViewModel.addNote(note)
 
             Toast.makeText(addNoteView.context, "Note Saved", Toast.LENGTH_SHORT).show()
