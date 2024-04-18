@@ -30,6 +30,12 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - DataBinding
   - Navigation Component
   - Room Database
+  - Google OAuth2
+  - Google Drive API
+  - Lingua Robot API (in progress)
+  - Google Font API (considering)
+  - Grammarly API (not supporting anymore)
+ 
   ## Progress:
   - **Link to our first presentation slide**:
     - https://docs.google.com/presentation/d/1-PhKBUz6BZXjfQ-_IoqxucheBnkmnISiEKFgLeH91r8/edit?usp=sharing
@@ -40,5 +46,20 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - **Link to our Third presentation slide**:
     - https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit#slide=id.g1f58920f515_0_45
      
+## Version Control:
 
-1
+- version 0.0.1: Empty file with basic UI (**first presentation**)
+- version 0.0.2: Finish buttons implemented on the main page
+- version 0.0.3: Create a new .xml file for future navigations
+- version 0.0.4: Implement Room Database but not working
+- version 0.0.5: Failed to implement previous database ideas, starting over a new version of app (**second presentation**)
+- version 0.1.0: Design a new UI for this app, including using new colors, themes, and fonts
+- version 1.0.0: Finish implementing new database and users can add and delete notes, which makes the app compilable
+- version 1.1.0: Add a Word Count button and finish its function
+- version 1.1.1: Redesign the UI for menu_edit_note.xml for new functions
+- version 1.1.2: Implement Trash page, rename main page to Note page, and add Delete button and Recover button
+- version 1.2.0: Finish functions and navigations needed for Note-Trash logic
+- version 1.2.1: Finish functions that could convert note files to PDF files
+- version 1.2.2: Implement Google OAuth2 and Google Drive API
+- version 1.3.0: Users can upload note files as PDF files to their Google Drive once they log in with their Google account (**third presentation**)
+- version 1.3.0++: Wait for considerating, designing, and coding
