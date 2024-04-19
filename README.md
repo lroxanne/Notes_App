@@ -48,6 +48,9 @@ This is an Android application using Kotlin for managing notes on mobile devices
    
   - **Link to our previous repo**
     - https://github.com/lroxanne/note.git
+
+  - **Link to our video demo for version 0.0.3**
+    - https://drive.google.com/file/d/1vfA1Siu2NelsI0suk0YC0cQCIAne8SMq/view?usp=sharing
    
   - **Link to our video demo for version 1.3.0**
     - https://drive.google.com/file/d/1903y5__lIDkBcer429IduDH0u3K8lG5I/view?usp=sharing

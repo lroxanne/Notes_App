@@ -255,7 +255,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
         val jsonFactory = GsonFactory.getDefaultInstance()
 
         driveService = com.google.api.services.drive.Drive.Builder(httpTransport, jsonFactory, credential)
-            .setApplicationName("YourAppName")
+            .setApplicationName("NoteApp")
             .build()
     }
     @OptIn(DelicateCoroutinesApi::class)
