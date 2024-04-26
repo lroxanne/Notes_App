@@ -40,4 +40,9 @@ class NoteViewModel(app: Application, private val noteRepository: NoteRepository
 
     fun searchNote(query: String?) =
         noteRepository.searchNote(query)
+
+    fun updateNoteImageUri(noteId: Int, imageUri: String) =
+        viewModelScope.launch {
+            noteRepository.updateNoteImageUri(noteId, imageUri)
+        }
 }
