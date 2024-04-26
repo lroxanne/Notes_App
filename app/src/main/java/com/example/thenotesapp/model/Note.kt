@@ -12,5 +12,6 @@ data class Note(
     val id: Int,
     val noteTitle: String,
     val noteDesc: String,
-    val isDeleted: Boolean
+    val isDeleted: Boolean,
+    val imageUri: String?
 ): Parcelable
