@@ -32,6 +32,10 @@ interface NoteDao {
     @Query("SELECT * FROM NOTES WHERE isDeleted is 1 ORDER BY id DESC")
     fun getDeleteNotes(): LiveData<List<Note>>
 
-    @Query("SELECT * FROM NOTES WHERE noteTitle LIKE :query OR noteDesc LIKE :query")
+    @Query("SELECT * FROM NOTES WHERE lower(noteTitle) LIKE lower(:query) OR UPPER(noteDesc) LIKE UPPER(:query)")
     fun searchNote(query: String?): LiveData<List<Note>>
+
+    @Query("UPDATE NOTES SET imageUri = :imageUri WHERE id = :noteId")
+    suspend fun updateNoteImageUri(noteId: Int, imageUri: String)
+
 }
