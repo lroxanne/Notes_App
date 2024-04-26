@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".NewNoteFragment"
         android:padding="12dp">
@@ -47,7 +47,51 @@
             android:fontFamily="@font/poppins"
             android:background="@drawable/pink_border"
             android:layout_below="@id/addNoteTitle"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp"
+
+           />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/editNoteImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxHeight="200dp"
+            android:maxWidth="200dp"
+            android:scaleType = "fitCenter"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addImgBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:backgroundTint="@color/pink"
+            android:tintMode="@color/white"
+            android:src="@drawable/baseline_add_to_photos_24"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="editFab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addFontBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="90dp"
+            android:clickable="true"
+            android:backgroundTint="@color/pink"
+            android:tintMode="@color/white"
+            android:src="@drawable/baseline_24mp_24"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="editFab" />
 
     </RelativeLayout>
+
 </layout>
