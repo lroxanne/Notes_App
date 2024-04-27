@@ -19,6 +19,7 @@ This is an Android application using Kotlin for managing notes on mobile devices
 ## Other Functions：
 - **Search words**: Lingua Robot API supports users to search a word's meaning (**Yuhan Peng**)
 - **Stat**: calculate the total words in the note and show (use toast but need polish) (**Ruoxuan Li**)
+- **Check Words**: check if the user's spelling is right (**Ruoxuan Li**)
 
 ## Tech:
 
@@ -34,7 +35,7 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - Google Drive API
   - Lingua Robot API (in progress)
   - Google Font API (considering)
-  - Grammarly API (not supporting anymore)
+  - Grammarbot API 
  
   ## Progress:
   - **Link to our First presentation slide**:
