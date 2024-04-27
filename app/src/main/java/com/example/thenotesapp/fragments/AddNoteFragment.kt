@@ -186,7 +186,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
                     saveNote()
                 } else{
-                    Toast.makeText(context, "Error checking grammar: ${response.errorBody()?.string()}", Toast.LENGTH_SHORT).show()
+                    saveNote()
+                    
                 }                }
             override fun onFailure(call: Call<GrammarResponse>, t: Throwable) {
                 Toast.makeText(context, "Failed to check grammar: ${t.message}", Toast.LENGTH_SHORT).show()
