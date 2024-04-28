@@ -38,4 +38,6 @@ interface NoteDao {
     @Query("UPDATE NOTES SET imageUri = :imageUri WHERE id = :noteId")
     suspend fun updateNoteImageUri(noteId: Int, imageUri: String)
 
+    @Query("SELECT * FROM NOTES WHERE isDeleted is 0 AND year=:year AND month=:month AND day=:day ORDER BY id DESC")
+    fun queryCurrentDateNote(year: Int, month: Int, day: Int):List<Note>
 }
