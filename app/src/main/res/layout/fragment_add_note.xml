@@ -6,10 +6,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".NewNoteFragment"
-        android:padding="12dp">
+        android:padding="12dp"
+        tools:context=".AddNoteFragment">
 
         <TextView
             android:id="@+id/addNoteHeading"
@@ -36,40 +36,62 @@
             android:maxLines="1"
             android:fontFamily="@font/poppins"/>
 
-        <EditText
-            android:id="@+id/addNoteDesc"
+        <ScrollView
+            android:id="@+id/layoutt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the description"
-            android:gravity="top"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins"
+            android:fillViewport="true"
             android:background="@drawable/pink_border"
             android:layout_below="@id/addNoteTitle"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="12dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-           />
+                <EditText
+                    android:id="@+id/addNoteDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/pink_border"
+                    android:backgroundTint="#FFFFFF"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="top"
+                    android:hint="Enter the description"
+                    android:padding="12dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/editNoteImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="200dp"
+                    android:maxHeight="200dp"
+                    android:layout_marginBottom="14dp"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addNoteDesc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/editNoteImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp"
-            android:maxWidth="200dp"
-            android:scaleType = "fitCenter"
-            android:layout_centerHorizontal="true"
-           
-            />
+
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addImgBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="105dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             android:clickable="true"
             android:backgroundTint="@color/pink"
             android:tintMode="@color/white"
@@ -82,8 +104,8 @@
             android:id="@+id/addFontBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="108dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="90dp"
             android:clickable="true"
             android:backgroundTint="@color/pink"
             android:tintMode="@color/white"
@@ -93,5 +115,4 @@
             android:contentDescription="editFab" />
 
     </RelativeLayout>
-
 </layout>
