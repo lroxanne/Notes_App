@@ -26,6 +26,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
@@ -105,6 +106,12 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val appCompatActivity = activity
+        if (appCompatActivity is AppCompatActivity) {
+            appCompatActivity.supportActionBar?.setTitle(R.string.edit_note)
+        }
+
+
         sharedPreferences = requireActivity().getSharedPreferences(
             "NoteAppPrefs",
             Context.MODE_PRIVATE
@@ -129,12 +136,15 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             val noteDesc = binding.editNoteDesc.text.toString().trim()
 
             if (noteTitle.isNotEmpty()) {
-                val note =
-                    Note(currentNote.id, noteTitle, noteDesc, false, selectedImageUri?.toString())
+                val note = Note(currentNote.id, noteTitle, noteDesc, false, selectedImageUri?.toString())
+                note.year = currentNote.year
+                note.month = currentNote.month
+                note.day = currentNote.day
+
                 notesViewModel.updateNote(note)
                 view.findNavController().popBackStack(R.id.homeFragment, false)
             } else {
-                Toast.makeText(context, " Please enter note title", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.enter_note_title, Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -175,12 +185,12 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             }
     }
 
-    fun showFontSelectionDialog(context: Context, title: TextView, heading:TextView) {
+    fun showFontSelectionDialog(context: Context, title: TextView, heading: TextView) {
         val fontOptions = arrayOf("Jersey", "Roboto")
         val fontFamilies = arrayOf("jersey.ttf", "roboto.ttf")
 
         val builder = AlertDialog.Builder(context)
-        builder.setTitle("Select Font")
+        builder.setTitle(R.string.select_font)
 
         builder.setItems(fontOptions) { _, which ->
             try {
@@ -198,14 +208,14 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
     private fun deleteNote() {
         AlertDialog.Builder(activity).apply {
-            setTitle("Delete Note")
-            setMessage("Do you want to delete this note?")
-            setPositiveButton("Delete") { _, _ ->
+            setTitle(R.string.delete_note)
+            setMessage(R.string.delete_note_message)
+            setPositiveButton(R.string.delete) { _, _ ->
                 notesViewModel.deleteNote(currentNote)
-                Toast.makeText(context, "Note Deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.note_deleted, Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.popBackStack(R.id.homeFragment, false)
             }
-            setNegativeButton("Cancel", null)
+            setNegativeButton(R.string.cancel, null)
         }.create().show()
     }
 
@@ -271,8 +281,9 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             (noteTitle.split("\\s+".toRegex()).size + noteDesc.split("\\s+".toRegex()).size).coerceAtLeast(
                 0
             )
+
         StyleableToast.Builder(binding.root.context).textSize(16f)
-            .text("Total word count: $totalWords")
+            .text(getString(R.string.total_word_count, totalWords))
             .backgroundColor(ContextCompat.getColor(binding.root.context, R.color.red))
             .solidBackground()
             .textColor(Color.WHITE).cornerRadius(10).show()
@@ -300,7 +311,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
                 // Storage permission not granted, show a message or handle accordingly
                 Toast.makeText(
                     requireContext(),
-                    "Storage permission not granted",
+                    R.string.permission_not_granted,
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -309,20 +320,20 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
     private fun thoroughDeleteNote() {
         AlertDialog.Builder(activity).apply {
-            setTitle("Delete Note")
-            setMessage("Do you want to delete this note?")
-            setPositiveButton("Delete") { _, _ ->
+            setTitle(R.string.delete_note)
+            setMessage(R.string.delete_note_message)
+            setPositiveButton(R.string.delete) { _, _ ->
                 notesViewModel.thoroughDeleteNote(currentNote)
-                Toast.makeText(context, " Note Deleted", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.note_deleted, Toast.LENGTH_SHORT).show()
                 view?.findNavController()?.popBackStack(R.id.trashNoteFragment, false)
             }
-            setNegativeButton("Cancel", null)
+            setNegativeButton(R.string.cancel, null)
         }.create().show()
     }
 
     private fun recoverNote() {
         notesViewModel.recoverNote(currentNote)
-        Toast.makeText(context, " Note Recover", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, R.string.note_recover, Toast.LENGTH_SHORT).show()
         view?.findNavController()?.popBackStack(R.id.trashNoteFragment, false)
     }
 
@@ -392,17 +403,17 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
                 }
             }
         } else {
-            Toast.makeText(context, "Please enter note title", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.enter_note_title, Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun uploadToDrive(filePath: String, fileName: String) {
         activity?.runOnUiThread {
-            Toast.makeText(context, "uploadToDrive called", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, R.string.upload_called, Toast.LENGTH_LONG).show()
         }
         if (filePath.isEmpty() || fileName.isEmpty()) {
             activity?.runOnUiThread {
-                Toast.makeText(context, "File path or name must not be empty", Toast.LENGTH_LONG)
+                Toast.makeText(context, R.string.file_not_empty, Toast.LENGTH_LONG)
                     .show()
             }
             return
@@ -435,22 +446,24 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
             val fileId = file.id
             Log.d("UploadToDrive", "File uploaded successfully with ID: $fileId")
 
+
             // Display a Toast message
             activity?.runOnUiThread {
                 Toast.makeText(
                     context,
-                    "File uploaded successfully with ID: $fileId",
+                    getString(R.string.uploaded_successfully, fileId),
                     Toast.LENGTH_LONG
                 ).show()
             }
         } catch (e: Exception) {
             Log.e("UploadToDrive", "Error uploading file: ${e.localizedMessage}")
             e.printStackTrace()
+
             // Display a Toast message for the error
             activity?.runOnUiThread {
                 Toast.makeText(
                     context,
-                    "Error uploading file: ${e.localizedMessage}",
+                    getString(R.string.error_uploading_file, e.localizedMessage),
                     Toast.LENGTH_LONG
                 ).show()
             }
