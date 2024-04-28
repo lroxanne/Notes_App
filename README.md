@@ -56,7 +56,17 @@ This is an Android application using Kotlin for managing notes on mobile devices
     - https://drive.google.com/file/d/1903y5__lIDkBcer429IduDH0u3K8lG5I/view?usp=sharing
 
 ## Version Control:
-	@@ -72,4 +75,8 @@ This is an Android application using Kotlin for managing notes on mobile devices
+- version 0.0.1: Empty file with basic UI (<ins>**first presentation**</ins>)
+- version 0.0.2: Finish buttons implemented on the main page
+- version 0.0.3: Create a new .xml file for future navigations
+- version 0.0.4: Implement Room Database but not working
+- version 0.0.5: Failed to implement previous database ideas, starting over a new version of app (<ins>**second presentation & previous repo**</ins>)
+- version 0.1.0: Design a new UI for this app, including using new colors, themes, and fonts
+- version 1.0.0: Finish implementing new database and users can add and delete notes, which makes the app compilable
+- version 1.1.0: Add a Word Count button and finish its function
+- version 1.1.1: Redesign the UI for menu_edit_note.xml for new functions
+- version 1.1.2: Implement Trash page, rename main page to Note page, and add Delete button and Recover button
+- version 1.2.0: Finish functions and navigations needed for Note-Trash logic
 - version 1.2.1: Finish functions that could convert note files to PDF files
 - version 1.2.2: Implement Google OAuth2 and Google Drive API
 - version 1.3.0: Users can upload note files as PDF files to their Google Drive once they log in with their Google account (<ins>**third presentation & first video demo**</ins>)
