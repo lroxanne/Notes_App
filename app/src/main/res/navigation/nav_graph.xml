@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.thenotesapp.fragments.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_addNoteFragment"
             app:destination="@id/addNoteFragment" />
@@ -17,11 +17,26 @@
         <action
             android:id="@+id/action_homeFragment_to_trashNoteFragment"
             app:destination="@id/trashNoteFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_dateNoteFragment"
+            app:destination="@id/dateNoteFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/dateNoteFragment"
+        android:name="com.example.thenotesapp.fragments.DateNoteFragment"
+        android:label="DateNoteFragment">
+        <action
+            android:id="@+id/action_dateNoteFragment_to_addNoteFragment"
+            app:destination="@id/addNoteFragment" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="com.example.thenotesapp.fragments.AddNoteFragment"
-        android:label="AddNoteFragment" >
+        android:label="AddNoteFragment">
         <action
             android:id="@+id/action_addNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -29,7 +44,7 @@
     <fragment
         android:id="@+id/editNoteFragment"
         android:name="com.example.thenotesapp.fragments.EditNoteFragment"
-        android:label="EditNoteFragment" >
+        android:label="EditNoteFragment">
         <action
             android:id="@+id/action_editNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -37,13 +52,13 @@
         <argument
             android:name="note"
             app:argType="com.example.thenotesapp.model.Note"
-            app:nullable="true"/>
+            app:nullable="true" />
     </fragment>
 
     <fragment
         android:id="@+id/trashNoteFragment"
         android:name="com.example.thenotesapp.fragments.TrashNoteFragment"
-        android:label="TrashNoteFragment" >
+        android:label="TrashNoteFragment">
         <action
             android:id="@+id/action_trashNoteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
