@@ -5,22 +5,12 @@
     <item
         android:id="@+id/searchMenu"
         android:icon="@drawable/baseline_search_24"
-        android:title="@string/search"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom" />
+        android:title="Search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
     <item
         android:id="@+id/trash"
-        android:title="@string/trash"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/date_note"
-        android:title="@string/date_note"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/language"
-        android:title="@string/language"
+        android:title="Trash"
         app:showAsAction="never" />
 </menu>

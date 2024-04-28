@@ -14,21 +14,18 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - **Delete and Restore Notes**: Users can delete and restore unwanted notes in the recycle bin. (**Yuhan Peng**)
 - **Export to PDF**: Users can export selected notes to PDF format for external sharing and printing. (**Yuhan Peng**)
 - **Google Drive**: let users upload notes to Google Drive. (**Yuhan Peng**)
-- **Search**: User can search for notes at home page(press search button). (**Ruoxuan Li**)
-- **Add Images**: Users can add images to their notes on the edit note page. (**Ruoxuan Li**)
+- **Search**: User can search for notes at home page(press search button)(**Ruoxuan Li**)
 
 ## Other Functions：
-- ~~**Search words**: Lingua Robot API supports users to search a word's meaning (**Yuhan Peng**)~~
-- **Stat**: calculate the total words in the note and show ~~(use toast but need polish)~~ (**Ruoxuan Li**)
+- **Search words**: Lingua Robot API supports users to search a word's meaning (**Yuhan Peng**)
+- **Stat**: calculate the total words in the note and show (use toast but need polish) (**Ruoxuan Li**)
 - **Check Words**: check if the user's spelling is right (**Ruoxuan Li**)
-- ~~**Change Font**: Google Font API supports hundreds of thousands of fonts for users to choose (**Yuhan Peng**)~~
-- **Change Font**: implement 2 different fonts for users to choose (**Ruoxuan Li**)
 
 ## Tech:
 
 - **Language**: Kotlin
 - **Structure**: MVVM (Model-View-ViewModel)
-- **APIs / Libraries**:
+- **API / Libraries**:
   - LiveData
   - ViewModel
   - DataBinding
@@ -36,27 +33,27 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - Room Database
   - Google OAuth2
   - Google Drive API
-  - ~~Lingua Robot API (dropped)~~
-  - ~~Google Font API (implement some of the fonts into the app)~~
-  - Grammarbot API
+  - Lingua Robot API (in progress)
+  - Google Font API (considering)
+  - Grammarbot API 
  
-## Progress:
-- **Link to our First presentation slide**:
+  ## Progress:
+  - **Link to our First presentation slide**:
     - https://docs.google.com/presentation/d/1-PhKBUz6BZXjfQ-_IoqxucheBnkmnISiEKFgLeH91r8/edit?usp=sharing
 
-- **Link to our Second presentation slide**:
+  - **Link to our Second presentation slide**:
     - https://docs.google.com/presentation/d/1zgome5nhVw2duotVGnDWhl_KOt4mEWw9qdSYCz9z52A/edit?usp=sharing
 
-- **Link to our Third presentation slide**:
+  - **Link to our Third presentation slide**:
     - https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit#slide=id.g1f58920f515_0_45
    
-- **Link to our previous repo**
+  - **Link to our previous repo**
     - https://github.com/lroxanne/note.git
 
-- **Link to our video demo for version 0.0.3**
+  - **Link to our video demo for version 0.0.3**
     - https://drive.google.com/file/d/1vfA1Siu2NelsI0suk0YC0cQCIAne8SMq/view?usp=sharing
    
-- **Link to our video demo for version 1.3.0**
+  - **Link to our video demo for version 1.3.0**
     - https://drive.google.com/file/d/1903y5__lIDkBcer429IduDH0u3K8lG5I/view?usp=sharing
      
 ## Version Control:
@@ -75,8 +72,4 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - version 1.2.1: Finish functions that could convert note files to PDF files
 - version 1.2.2: Implement Google OAuth2 and Google Drive API
 - version 1.3.0: Users can upload note files as PDF files to their Google Drive once they log in with their Google account (<ins>**third presentation & first video demo**</ins>)
-- version 1.3.1: Fix the search bar and the search tool this time is really powerful and accurate
-- version 1.3.2: Polish the toast for the Word Count function
-- version 1.4.0: Users are able to add images to their notes right now
-- version 1.4.1: Users can change the font in the edit note page
-- version 2.0.0: Implement grammar check, unknown English words will have red or blue underlines
+- version 1.3.0++: Wait for considerating, designing, and coding
