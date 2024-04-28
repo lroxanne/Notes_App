@@ -18,7 +18,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins"
-            android:text="Add Note."
+            android:text="@string/add_note"
             android:textColor="@color/red"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:id="@+id/addNoteTitle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:hint="Enter the title"
+            android:hint="@string/enter_the_title"
             android:padding="12dp"
             android:textSize="20sp"
             android:layout_below="@id/addNoteHeading"
@@ -59,7 +59,7 @@
                     android:backgroundTint="#FFFFFF"
                     android:fontFamily="@font/poppins"
                     android:gravity="top"
-                    android:hint="Enter the description"
+                    android:hint="@string/enter_the_description"
                     android:padding="12dp"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -74,17 +74,12 @@
                     android:maxWidth="200dp"
                     android:maxHeight="200dp"
                     android:layout_marginBottom="14dp"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/addNoteDesc" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
-
-
-
-
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addImgBtn"

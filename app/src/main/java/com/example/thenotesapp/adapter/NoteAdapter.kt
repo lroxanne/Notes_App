@@ -11,11 +11,11 @@ import com.example.thenotesapp.fragments.HomeFragmentDirections
 import com.example.thenotesapp.fragments.TrashNoteFragmentDirections
 import com.example.thenotesapp.model.Note
 
-class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(private val isList: Boolean = false) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
-    class NoteViewHolder(val itemBinding: NoteLayoutBinding): RecyclerView.ViewHolder(itemBinding.root)
+    class NoteViewHolder(val itemBinding: NoteLayoutBinding) : RecyclerView.ViewHolder(itemBinding.root)
 
-    private val differCallback = object : DiffUtil.ItemCallback<Note>(){
+    private val differCallback = object : DiffUtil.ItemCallback<Note>() {
         override fun areItemsTheSame(oldItem: Note, newItem: Note): Boolean {
             return oldItem.id == newItem.id &&
                     oldItem.noteDesc == newItem.noteDesc &&
@@ -44,13 +44,15 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         holder.itemBinding.noteTitle.text = currentNote.noteTitle
         holder.itemBinding.noteDesc.text = currentNote.noteDesc
 
-        holder.itemView.setOnClickListener {
-            if(currentNote.isDeleted){
-                val direction=  TrashNoteFragmentDirections.actionTrashNoteFragmentToEditNoteFragment(currentNote)
-                it.findNavController().navigate(direction)
-            }else{
-                val direction = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(currentNote)
-                it.findNavController().navigate(direction)
+        if (!isList) {
+            holder.itemView.setOnClickListener {
+                if (currentNote.isDeleted) {
+                    val direction = TrashNoteFragmentDirections.actionTrashNoteFragmentToEditNoteFragment(currentNote)
+                    it.findNavController().navigate(direction)
+                } else {
+                    val direction = HomeFragmentDirections.actionHomeFragmentToEditNoteFragment(currentNote)
+                    it.findNavController().navigate(direction)
+                }
             }
         }
     }

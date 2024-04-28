@@ -42,7 +42,6 @@
     <string name="enter_the_title">Enter the title</string>
     <string name="enter_the_description">Enter the description</string>
 
-
     <string name="hint_date">Select Date</string>
 
     <string name="language_setting">Language setting</string>
@@ -75,5 +74,4 @@
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
-
 </resources>

@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -33,6 +34,11 @@ class TrashNoteFragment : Fragment(), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val appCompatActivity = activity
+        if (appCompatActivity is AppCompatActivity) {
+            appCompatActivity.supportActionBar?.setTitle(R.string.trash_note)
+        }
+
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
@@ -80,6 +86,7 @@ class TrashNoteFragment : Fragment(), MenuProvider {
                 Navigation.findNavController(mBinding.root).navigateUp()
                 true
             }
+
             else -> false
         }
     }

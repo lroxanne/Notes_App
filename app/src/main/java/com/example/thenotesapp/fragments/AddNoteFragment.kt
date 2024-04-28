@@ -25,6 +25,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -43,7 +44,7 @@ import com.example.thenotesapp.databinding.FragmentAddNoteBinding
 import com.example.thenotesapp.model.Note
 import com.example.thenotesapp.viewmodel.NoteViewModel
 import com.example.thenotesapp.viewmodel.PermissionViewModel
-
+import java.util.Calendar
 
 
 class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
@@ -72,6 +73,11 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val appCompatActivity = activity
+        if (appCompatActivity is AppCompatActivity) {
+            appCompatActivity.supportActionBar?.setTitle(R.string.add_note)
+        }
+
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -115,15 +121,15 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
     private fun showFontDialog() {
         val alertDialog = AlertDialog.Builder(context)
-            .setTitle("Select Font")
-            .setPositiveButton("Jersey") { dialog, _ ->
+            .setTitle(R.string.select_font)
+            .setPositiveButton(R.string.jersey) { dialog, _ ->
                 val typeface = resources.getFont(R.font.jersey)
                 binding.addNoteHeading.typeface=typeface
                 binding.addNoteDesc.typeface=typeface
                 binding.addNoteTitle.typeface=typeface
                 dialog.dismiss()
             }
-            .setNegativeButton("Roboto") { dialog, _ ->
+            .setNegativeButton(R.string.roboto) { dialog, _ ->
                 val typeface = resources.getFont(R.font.roboto)
                 binding.addNoteHeading.typeface=typeface
                 binding.addNoteDesc.typeface=typeface
@@ -169,7 +175,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
                     if (grammarErrors.isNotEmpty()) {
                         Toast.makeText(context, grammarErrors.toString(), Toast.LENGTH_LONG).show()
                     } else {
-                        Toast.makeText(context, "No grammar errors found.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, R.string.no_grammar_errors, Toast.LENGTH_SHORT).show()
                     }
 
                     saveNote()
@@ -178,7 +184,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
 
                 }  }
             override fun onFailure(call: Call<GrammarResponse>, t: Throwable) {
-                Toast.makeText(context, "Failed to check grammar: ${t.message}", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(context,  getString(R.string.check_grammar,t.message), Toast.LENGTH_SHORT).show()
                 saveNote()
             }
         })
@@ -188,12 +195,18 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
         val noteTitle = binding.addNoteTitle.text.toString().trim()
         val noteDesc = binding.addNoteDesc.text.toString().trim()
         if (noteTitle.isNotEmpty()) {
+            val calendar = Calendar.getInstance()
+
             val note = Note(0, noteTitle, noteDesc, false, selectedImageUri?.toString())
+            note.year = calendar.get(Calendar.YEAR)
+            note.month =calendar.get(Calendar.MONTH)
+            note.day = calendar.get(Calendar.DAY_OF_MONTH)
+
             notesViewModel.addNote(note)
-            Toast.makeText(context, "Note Saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.note_saved, Toast.LENGTH_SHORT).show()
             view?.findNavController()?.popBackStack(R.id.homeFragment, false)
         } else {
-            Toast.makeText(context, "Please enter note title", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.enter_note_title, Toast.LENGTH_SHORT).show()
         }
     }
 

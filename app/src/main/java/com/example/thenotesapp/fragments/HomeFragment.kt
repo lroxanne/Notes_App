@@ -1,11 +1,19 @@
 package com.example.thenotesapp.fragments
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
-import android.view.*
-import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -13,10 +21,11 @@ import com.example.thenotesapp.MainActivity
 import com.example.thenotesapp.R
 import com.example.thenotesapp.adapter.NoteAdapter
 import com.example.thenotesapp.databinding.FragmentHomeBinding
+import com.example.thenotesapp.language.MultiLanguageUtil
 import com.example.thenotesapp.model.Note
 import com.example.thenotesapp.viewmodel.NoteViewModel
 
-class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextListener, MenuProvider {
+class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextListener, MenuProvider {
 
     private var homeBinding: FragmentHomeBinding? = null
     private val binding get() = homeBinding!!
@@ -35,6 +44,11 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val appCompatActivity = activity
+        if (appCompatActivity is AppCompatActivity) {
+            appCompatActivity.supportActionBar?.setTitle(R.string.app_name)
+        }
+
 
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -47,7 +61,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
         }
     }
 
-    private fun updateUI(note: List        <Note>?) {
+    private fun updateUI(note: List<Note>?) {
         if (note != null) {
             if (note.isNotEmpty()) {
                 binding.emptyNotesImage.visibility = View.GONE
@@ -100,6 +114,7 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
                 binding.root.findNavController().navigate(R.id.action_homeFragment_to_trashNoteFragment)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -125,11 +140,37 @@ class HomeFragment : Fragment(R.layout.fragment_home),SearchView.OnQueryTextList
                 homeBinding?.root?.findNavController()?.navigate(R.id.action_homeFragment_to_trashNoteFragment)
                 true
             }
+
+            R.id.date_note -> {
+                homeBinding?.root?.findNavController()?.navigate(R.id.action_homeFragment_to_dateNoteFragment)
+                true
+            }
+
+            R.id.language -> {
+                showLanguageDialog()
+                true
+            }
+
             else -> false
         }
     }
 
-
+    private fun showLanguageDialog() {
+        val languages = resources.getStringArray(R.array.language_list)
+        val languageType = MultiLanguageUtil.INSTANCE.getLanguageType(requireContext())
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle(R.string.language_setting)
+        builder.setSingleChoiceItems(languages, languageType) { dialog, which ->
+            dialog.dismiss()
+            MultiLanguageUtil.INSTANCE.updateLanguage(requireContext(), which)
+            val intent = Intent(requireContext(), MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            startActivity(intent)
+        }
+        builder.setCancelable(true)
+        val dialog = builder.create()
+        dialog.show()
+    }
 }
 
 
