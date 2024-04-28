@@ -102,53 +102,41 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
                             .load(imageUri)
                             .apply(imageLoaderOptions)
                             .into(binding.editNoteImg)
-                        binding.editNoteImg.visibility = View.VISIBLE
+
                     }
                 }
             }
 
         binding.addFontBtn.setOnClickListener {
-            showFontSelectionDialog(requireContext(),binding.addNoteTitle,binding.addNoteHeading)
+            showFontDialog()
         }
     }
 
 
-    fun showFontSelectionDialog(context: Context, title: TextView, heading:TextView) {
-        val fontOptions = arrayOf("Jersey", "Roboto")
-        val fontFamilies = arrayOf("jersey.ttf", "roboto.ttf")
-
-        val builder = AlertDialog.Builder(context)
-        builder.setTitle("Select Font")
-
-        builder.setItems(fontOptions) { _, which ->
-            try {
-                val fontPath = "fonts/${fontFamilies.getOrElse(which) { "" }}"
-                val typeface = Typeface.createFromAsset(context.assets, fontPath)
-                title.typeface = typeface
-                heading.typeface = typeface
-            } catch (e: Exception) {
-                e.printStackTrace()
+    private fun showFontDialog() {
+        val alertDialog = AlertDialog.Builder(context)
+            .setTitle("Select Font")
+            .setPositiveButton("Jersey") { dialog, _ ->
+                val typeface = resources.getFont(R.font.jersey)
+                binding.addNoteHeading.typeface=typeface
+                binding.addNoteDesc.typeface=typeface
+                binding.addNoteTitle.typeface=typeface
+                dialog.dismiss()
             }
-        }
+            .setNegativeButton("Roboto") { dialog, _ ->
+                val typeface = resources.getFont(R.font.roboto)
+                binding.addNoteHeading.typeface=typeface
+                binding.addNoteDesc.typeface=typeface
+                binding.addNoteTitle.typeface=typeface
+                dialog.dismiss()
+            }
+            .setCancelable(true)
+            .create()
 
-        builder.show()
+        alertDialog.show()
     }
 
-    private fun saveNote(view: View) {
-        val noteTitle = binding.addNoteTitle.text.toString().trim()
-        val noteDesc = binding.addNoteDesc.text.toString().trim()
 
-        if (noteTitle.isNotEmpty()) {
-            val note = Note(0, noteTitle, noteDesc, false, selectedImageUri?.toString())
-            notesViewModel.addNote(note)
-
-            Toast.makeText(addNoteView.context, "Note Saved", Toast.LENGTH_SHORT).show()
-            view.findNavController().popBackStack(R.id.homeFragment, false)
-        } else {
-            Toast.makeText(addNoteView.context, "Please enter note title", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menu.clear()
@@ -187,8 +175,8 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
                     saveNote()
                 } else{
                     saveNote()
-                    
-                }                }
+
+                }  }
             override fun onFailure(call: Call<GrammarResponse>, t: Throwable) {
                 Toast.makeText(context, "Failed to check grammar: ${t.message}", Toast.LENGTH_SHORT).show()
                 saveNote()
