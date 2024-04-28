@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Notes</string>
+
+    <string name="select_font">选择字体</string>
+    <string name="jersey">Jersey</string>
+    <string name="roboto">Roboto</string>
+    <string name="note_saved">笔记已保存</string>
+    <string name="enter_note_title">请输入笔记标题</string>
+    <string name="check_grammar">检查语法失败:%1$s</string>
+    <string name="no_grammar_errors">没有发现语法错误。</string>
+
+    <string name="total_word_count">总字数:%1$d</string>
+    <string name="delete_note">删除比较</string>
+    <string name="delete_note_message">您想要删除这个笔记吗?</string>
+    <string name="delete">删除</string>
+    <string name="note_deleted">笔记已删除</string>
+    <string name="cancel">取消</string>
+    <string name="permission_not_granted">未授予存储权限</string>
+    <string name="note_recover">笔记恢复</string>
+    <string name="upload_called">取消上传到 Drive </string>
+    <string name="file_not_empty">文件路径或者名字不能为空</string>
+    <string name="uploaded_successfully">文件上传成功:%1$s</string>
+    <string name="error_uploading_file">文件上传错误:%1$s</string>
+
+    <string name="search">搜索</string>
+    <string name="trash">垃圾箱</string>
+    <string name="date_note">日期笔记</string>
+    <string name="language">语言</string>
+    <string name="save">保存</string>
+    <string name="recover">恢复</string>
+    <string name="upload">上传</string>
+    <string name="word_count">字数</string>
+    <string name="lingua_robot">Lingua Robot</string>
+    <string name="notes">笔记</string>
+
+    <string name="today">今天</string>
+    <string name="switch_date">切换日期</string>
+
+    <string name="add_note">添加笔记</string>
+    <string name="edit_note">编辑笔记</string>
+    <string name="trash_note">已删除笔记</string>
+    <string name="enter_the_title">输入笔记标题</string>
+    <string name="enter_the_description">输入笔记描述</string>
+
+    <string name="hint_date">选择日期</string>
+
+    <string name="language_setting">语言设置</string>
+    <string name="setting_language_auto">跟随系统</string>
+    <string name="setting_language_english">English</string>
+    <string name="setting_simplified_chinese">简体中文</string>
+    <string-array name="language_list">
+        <item>跟随系统</item>
+        <item>English</item>
+        <item>简体中文</item>
+    </string-array>
+
+    <string name="january">一月</string>
+    <string name="february">二月</string>
+    <string name="march">三月</string>
+    <string name="april">四月</string>
+    <string name="may">五月</string>
+    <string name="june">六月</string>
+    <string name="july">七月</string>
+    <string name="august">八月</string>
+    <string name="september">九月</string>
+    <string name="october">十月</string>
+    <string name="november">十一月</string>
+    <string name="december">十二月</string>
+
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thursday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期天</string>
+</resources>
