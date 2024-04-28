@@ -36,31 +36,50 @@
             android:maxLines="1"
             android:fontFamily="@font/poppins"/>
 
-        <EditText
-            android:id="@+id/editNoteDesc"
+        <ScrollView
+            android:id="@+id/layoutt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the description"
-            android:gravity="top"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:fontFamily="@font/poppins"
+            android:fillViewport="true"
             android:background="@drawable/pink_border"
             android:layout_below="@id/editNoteTitle"
-            android:layout_marginTop="12dp" />
+            android:layout_marginTop="12dp">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/editNoteImg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:maxHeight="200dp"
-            android:maxWidth="200dp"
-            android:scaleType = "fitCenter"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"
+                <EditText
+                    android:id="@+id/editNoteDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@drawable/pink_border"
+                    android:backgroundTint="#FFFFFF"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="top"
+                    android:hint="Enter the description"
+                    android:padding="12dp"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-           />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/editNoteImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="200dp"
+                    android:layout_marginBottom="14dp"
+                    android:maxHeight="200dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editNoteDesc" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/editNoteFab"
