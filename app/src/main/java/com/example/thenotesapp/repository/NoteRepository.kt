@@ -17,4 +17,8 @@ class NoteRepository(private val db: NoteDatabase) {
     fun getAllNotes() = db.getNoteDao().getAllNotes()
     fun getDeleteNotes() = db.getNoteDao().getDeleteNotes()
     fun searchNote(query: String?) = db.getNoteDao().searchNote("%$query%")
+
+    fun queryCurrentDateNote(year: Int, month: Int, day: Int): List<Note> {
+        return db.getNoteDao().queryCurrentDateNote(year, month, day)
+    }
 }
