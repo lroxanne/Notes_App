@@ -14,10 +14,8 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - **Add Images**: Users can add images to their notes on the edit note page. (**Ruoxuan Li**)
 
 ## Other Functions：
-- ~~**Search words**: Lingua Robot API supports users to search a word's meaning (**Yuhan Peng**)~~
-- **Stat**: calculate the total words in the note and show ~~(use toast but need polish)~~ (**Ruoxuan Li**)
+- **Stat**: calculate the total words in the note and show  (**Ruoxuan Li**)
 - **Check Words**: check if the user's spelling is right (**Ruoxuan Li**)
-- ~~**Change Font**: Google Font API supports hundreds of thousands of fonts for users to choose (**Yuhan Peng**)~~
 - **Change Font**: implement 2 different fonts for users to choose (**Ruoxuan Li**)
 
 ## Tech:
@@ -32,8 +30,6 @@ This is an Android application using Kotlin for managing notes on mobile devices
   - Room Database
   - Google OAuth2
   - Google Drive API
-  - ~~Lingua Robot API (dropped)~~
-  - ~~Google Font API (implement some of the fonts into the app)~~
   - Grammarbot API
 
 ## Progress:
