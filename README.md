@@ -1,8 +1,11 @@
-# Note APP 
+# Note APP
+
+This is an Android application using Kotlin for managing notes on mobile devices. Users can add, edit, view, and delete notes, and also export notes as PDF files (upload to Google Drive). This application uses MVVM architecture, Room database, Google Drive API, and Lingua Robot API... (more features to be implemented in the future).
+
 ## Team members: 
 - Ruoxuan Li
 - Yuhan Peng
-This is an Android application using Kotlin for managing notes on mobile devices. Users can add, edit, view, and delete notes, and also export notes as PDF files (upload to Google Drive). This application uses MVVM architecture, Room database, Google Drive API, and Lingua Robot API... (more features to be implemented in the future).
+
 ## Main Functions:
 - **Add Note**: Users can create new notes, enter text, and save them. (**Ruoxuan Li**)
 - **Edit Notes**: Users can modify and save existing notes' content. (**Ruoxuan Li**)
