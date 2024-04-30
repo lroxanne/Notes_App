@@ -15,11 +15,13 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - **Google Drive**: let users upload notes to Google Drive. (**Yuhan Peng**)
 - **Search**: User can search for notes at home page(press search button). (**Ruoxuan Li**)
 - **Add Images**: Users can add images to their notes on the edit note page. (**Ruoxuan Li**)
+- **Date Note**: Users can add notes to a certain date. (**Yuhan Peng**)
 
 ## Other Functions：
 - **Stat**: calculate the total words in the note and show  (**Ruoxuan Li**)
 - **Check Words**: check if the user's spelling is right (**Ruoxuan Li**)
 - **Change Font**: implement 2 different fonts for users to choose (**Ruoxuan Li**)
+- **Change Language**: users can change the UI language for the app (**Yuhan Peng**)
 
 ## Tech:
 
@@ -44,6 +46,9 @@ This is an Android application using Kotlin for managing notes on mobile devices
 
 - **Link to our Third presentation slide**:
     - https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit#slide=id.g1f58920f515_0_45
+ 
+- **Link to our Final presentation slide**
+    - wait for the link
 
 - **Link to our previous repo**
     - https://github.com/lroxanne/note.git
@@ -53,6 +58,9 @@ This is an Android application using Kotlin for managing notes on mobile devices
 
 - **Link to our video demo for version 1.3.0**
     - https://drive.google.com/file/d/1903y5__lIDkBcer429IduDH0u3K8lG5I/view?usp=sharing
+ 
+- **Link to our video demo for version 2.2.1**
+    - wait for the link
 
 ## Version Control:
 - version 0.0.1: Empty file with basic UI (<ins>**first presentation**</ins>)
@@ -74,3 +82,6 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - version 1.4.0: Users are able to add images to their notes right now
 - version 1.4.1: Users can change the font in the edit note page
 - version 2.0.0: Implement grammar check, unknown English words will have red or blue underlines
+- version 2.1.0: Implement date note
+- version 2.2.0: Implement language switch function, supporting English (US) and Chinese (Simplified)
+- version 2.2.1: Change the translation for some of the words in Chinese
