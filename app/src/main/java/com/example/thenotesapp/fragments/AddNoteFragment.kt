@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -76,6 +77,7 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
         val appCompatActivity = activity
         if (appCompatActivity is AppCompatActivity) {
             appCompatActivity.supportActionBar?.setTitle(R.string.add_note)
+            appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
 
@@ -154,6 +156,10 @@ class AddNoteFragment : Fragment(R.layout.fragment_add_note), MenuProvider {
             R.id.saveMenu -> {
                 checkGrammarAndSaveNote()
 
+                true
+            }
+            android.R.id.home->{
+                addNoteBinding?.root?.findNavController()?.popBackStack(R.id.homeFragment, false)
                 true
             }
 

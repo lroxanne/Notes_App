@@ -13,6 +13,7 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.thenotesapp.MainActivity
 import com.example.thenotesapp.R
@@ -37,6 +38,7 @@ class TrashNoteFragment : Fragment(), MenuProvider {
         val appCompatActivity = activity
         if (appCompatActivity is AppCompatActivity) {
             appCompatActivity.supportActionBar?.setTitle(R.string.trash_note)
+            appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
         val menuHost: MenuHost = requireActivity()
@@ -84,6 +86,11 @@ class TrashNoteFragment : Fragment(), MenuProvider {
         return when (menuItem.itemId) {
             R.id.notes -> {
                 Navigation.findNavController(mBinding.root).navigateUp()
+                true
+            }
+
+            android.R.id.home -> {
+                mBinding.root.findNavController().popBackStack()
                 true
             }
 

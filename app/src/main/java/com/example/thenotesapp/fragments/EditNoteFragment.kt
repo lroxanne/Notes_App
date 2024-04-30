@@ -109,6 +109,7 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
         val appCompatActivity = activity
         if (appCompatActivity is AppCompatActivity) {
             appCompatActivity.supportActionBar?.setTitle(R.string.edit_note)
+            appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
 
@@ -267,6 +268,11 @@ class EditNoteFragment : Fragment(R.layout.fragment_edit_note), MenuProvider {
 
             R.id.CalMenu -> {
                 calculateAndShowWordCount()
+                true
+            }
+
+            android.R.id.home->{
+                editNoteBinding?.root?.findNavController()?.popBackStack()
                 true
             }
 

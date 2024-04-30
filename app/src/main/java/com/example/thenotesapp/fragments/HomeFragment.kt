@@ -47,6 +47,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         val appCompatActivity = activity
         if (appCompatActivity is AppCompatActivity) {
             appCompatActivity.supportActionBar?.setTitle(R.string.app_name)
+            appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(false)
         }
 
 

@@ -42,6 +42,7 @@ class DateNoteFragment : Fragment(), MenuProvider, DatePickerDialog.OnDateSetLis
             val appCompatActivity = activity
             if (appCompatActivity is AppCompatActivity) {
                 appCompatActivity.supportActionBar?.setTitle(R.string.date_note)
+                appCompatActivity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
             }
 
             addNoteFab.setOnClickListener {
@@ -78,6 +79,11 @@ class DateNoteFragment : Fragment(), MenuProvider, DatePickerDialog.OnDateSetLis
 
             R.id.switch_date -> {
                 showDateDialog()
+                true
+            }
+
+            android.R.id.home -> {
+                mBinding.root.findNavController().navigate(R.id.action_dateNoteFragment_to_homeFragment)
                 true
             }
 
