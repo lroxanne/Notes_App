@@ -45,10 +45,10 @@ This is an Android application using Kotlin for managing notes on mobile devices
     - https://docs.google.com/presentation/d/1zgome5nhVw2duotVGnDWhl_KOt4mEWw9qdSYCz9z52A/edit?usp=sharing
 
 - **Link to our Third presentation slide**:
-    - https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit#slide=id.g1f58920f515_0_45
+    - https://docs.google.com/presentation/d/1WWfYTXJpdB9b0acWoilSth_R6v2q3-JgnF_e7WWBZm0/edit?usp=sharing
  
 - **Link to our Final presentation slide**
-    - wait for the link
+    - https://docs.google.com/presentation/d/1ebqdeDR2rhVLMUPn6_WYEy7LnmmDmDmD/edit?usp=sharing
 
 - **Link to our previous repo**
     - https://github.com/lroxanne/note.git
