@@ -67,7 +67,7 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - version 0.0.2: Finish buttons implemented on the main page
 - version 0.0.3: Create a new .xml file for future navigations
 - version 0.0.4: Implement Room Database but not working
-- version 0.0.5: Failed to implement previous database ideas, starting over a new version of app (<ins>**second presentation & previous repo**</ins>)
+- version 0.0.5: Failed to implement previous database ideas, starting over a new version of app (<ins>**second presentation & first video demo & previous repo**</ins>)
 - version 0.1.0: Design a new UI for this app, including using new colors, themes, and fonts
 - version 1.0.0: Finish implementing new database and users can add and delete notes, which makes the app compilable
 - version 1.1.0: Add a Word Count button and finish its function
@@ -76,7 +76,7 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - version 1.2.0: Finish functions and navigations needed for Note-Trash logic
 - version 1.2.1: Finish functions that could convert note files to PDF files
 - version 1.2.2: Implement Google OAuth2 and Google Drive API
-- version 1.3.0: Users can upload note files as PDF files to their Google Drive once they log in with their Google account (<ins>**third presentation & first video demo**</ins>)
+- version 1.3.0: Users can upload note files as PDF files to their Google Drive once they log in with their Google account (<ins>**third presentation & second video demo**</ins>)
 - version 1.3.1: Fix the search bar and the search tool this time is really powerful and accurate
 - version 1.3.2: Polish the toast for the Word Count function
 - version 1.4.0: Users are able to add images to their notes right now
@@ -84,4 +84,4 @@ This is an Android application using Kotlin for managing notes on mobile devices
 - version 2.0.0: Implement grammar check, unknown English words will have red or blue underlines
 - version 2.1.0: Implement date note
 - version 2.2.0: Implement language switch function, supporting English (US) and Chinese (Simplified)
-- version 2.2.1: Change the translation for some of the words in Chinese
+- version 2.2.1: Change the translation for some of the words in Chinese (<ins>**final presentation & final video demo**</ins>)
