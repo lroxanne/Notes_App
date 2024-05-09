@@ -60,7 +60,7 @@ This is an Android application using Kotlin for managing notes on mobile devices
     - https://drive.google.com/file/d/1903y5__lIDkBcer429IduDH0u3K8lG5I/view?usp=sharing
  
 - **Link to our video demo for version 2.2.1**
-    - wait for the link
+    - https://drive.google.com/file/d/10OxsBgZuB2cZ-pMsSTRfohuVrceMzrsX/view?usp=sharing
 
 ## Version Control:
 - version 0.0.1: Empty file with basic UI (<ins>**first presentation**</ins>)
